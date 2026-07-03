@@ -1,16 +1,50 @@
-# React + Vite
+# Abdul Rawoof S.A.K - ML Engineer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive, multi-page portfolio built for a Machine Learning Engineer specializing in NLP, LLMs, and MLOps. 
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Framework:** React (Vite)
+- **Styling:** Tailwind CSS v4
+- **Animations:** Framer Motion
+- **Icons:** Lucide-React
+- **Routing:** React Router DOM
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Running Locally
 
-## React Compiler
+1. **Install Dependencies:** (Already installed if you used the automated setup)
+   ```bash
+   npm install
+   ```
+2. **Start Development Server:**
+   ```bash
+   npm run dev
+   ```
+3. Open your browser and navigate to the localhost URL provided (usually `http://localhost:5173`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Building for Production
 
-## Expanding the Oxlint configuration
+To create a static production build, run:
+```bash
+npm run build
+```
+This will generate a `dist` folder containing the optimized static assets.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Deployment
+
+Because this is a Vite + React Router application, you can easily deploy it to platforms like **Vercel** or **Netlify**.
+
+### Vercel
+1. Install the Vercel CLI or connect your GitHub repository to Vercel.
+2. Vercel will automatically detect it as a Vite project and use `npm run build` as the build command and `dist` as the output directory.
+
+### Netlify
+1. Connect your repository to Netlify.
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+*(Note: For React Router to work correctly on Netlify, you may need to add a `_redirects` file in your `public` folder with the content: `/* /index.html 200`)*
+
+## Placeholders to Update
+
+Before deploying, ensure you replace the following placeholders:
+- **Resume PDF:** Place your actual resume PDF in the `public/` directory and name it `resume.pdf`. The "Download Resume" button on the Home page links to `/resume.pdf`.
+- **Project Diagrams:** In `src/pages/Projects.jsx`, there are placeholder SVGs/Icons for architecture diagrams. You can replace the `lucide-react` icon block with an `<img>` tag pointing to actual architectural diagrams of your systems.
