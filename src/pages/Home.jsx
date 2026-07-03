@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, FileText, Mail } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -43,15 +43,7 @@ const Home = () => {
               </motion.button>
             </Link>
             
-            <a href="/resume.pdf" target="_blank" rel="noreferrer">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                <FileText size={20} /> Download Resume
-              </motion.button>
-            </a>
+
             
             <Link to="/contact">
               <motion.button 
