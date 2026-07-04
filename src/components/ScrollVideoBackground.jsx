@@ -9,7 +9,7 @@ export const ScrollVideoBackground = ({ canvasRef }) => {
   const imagesRef = useRef([]);
   const [imagesReady, setImagesReady] = useState(false);
   const lastFrameIndex = useRef(-1);
-  const frameCount = 124; // We have 124 frames from ezgif
+  const frameCount = 254; // We have 254 frames from ezgif
 
   // Resize canvas to window size
   useEffect(() => {
@@ -37,7 +37,7 @@ export const ScrollVideoBackground = ({ canvasRef }) => {
       const img = new Image();
       // Format number to 3 digits e.g. 001, 002
       const num = i.toString().padStart(3, '0');
-      img.src = `/video fram image/ezgif-frame-${num}.jpg`;
+      img.src = `/ezgif-7a2c3da4858785dc-jpg/ezgif-frame-${num}.jpg`;
       
       img.onload = () => {
         loadedCount++;
