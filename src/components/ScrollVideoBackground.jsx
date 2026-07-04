@@ -5,7 +5,7 @@ import * as THREE from 'three';
 
 export const ScrollVideoBackground = ({ videoUrl, canvasRef, videoRef }) => {
   const scroll = useScroll();
-  
+
   const [frames, setFrames] = useState([]);
   const [framesReady, setFramesReady] = useState(false);
   const lastFrameIndex = useRef(-1);
@@ -22,7 +22,7 @@ export const ScrollVideoBackground = ({ videoUrl, canvasRef, videoRef }) => {
         lastFrameIndex.current = -1; // force redraw
       }
     };
-    
+
     // Initial size
     setTimeout(handleResize, 100);
     window.addEventListener('resize', handleResize);
@@ -65,13 +65,13 @@ export const ScrollVideoBackground = ({ videoUrl, canvasRef, videoRef }) => {
           if (isCancelled) return;
           const time = (i / (frameCount - 1)) * (video.duration - 0.05);
           video.currentTime = time;
-          
+
           await new Promise((resolve, reject) => {
             const onSeeked = () => { video.removeEventListener('seeked', onSeeked); resolve(); };
             video.addEventListener('seeked', onSeeked);
             setTimeout(() => { video.removeEventListener('seeked', onSeeked); reject(); }, 3000);
           });
-          
+
           const bitmap = await createImageBitmap(video, { resizeWidth: scaledWidth, resizeHeight: scaledHeight });
           extractedFrames.push(bitmap);
         }
@@ -79,7 +79,7 @@ export const ScrollVideoBackground = ({ videoUrl, canvasRef, videoRef }) => {
         if (!isCancelled && extractedFrames.length > 0) {
           setFrames(extractedFrames);
           setFramesReady(true);
-          
+
           // hide video fallback, show canvas
           if (videoRef.current) videoRef.current.style.display = 'none';
           if (canvasRef.current) canvasRef.current.style.visibility = 'visible';
@@ -104,11 +104,11 @@ export const ScrollVideoBackground = ({ videoUrl, canvasRef, videoRef }) => {
     const onSeeked = () => { videoSeeking.current = false; };
     const onStalled = () => { videoSeeking.current = false; };
     const onLoadedData = () => { vid.currentTime = 0; };
-    
+
     vid.addEventListener('seeked', onSeeked);
     vid.addEventListener('stalled', onStalled);
     vid.addEventListener('loadeddata', onLoadedData);
-    
+
     return () => {
       vid.removeEventListener('seeked', onSeeked);
       vid.removeEventListener('stalled', onStalled);
@@ -120,7 +120,7 @@ export const ScrollVideoBackground = ({ videoUrl, canvasRef, videoRef }) => {
   useFrame(() => {
     // ScrollControls already applies damping, so we just use scroll.offset directly
     const progress = scroll.offset;
-    
+
     if (framesReady && frames.length > 0 && canvasRef.current) {
       // Draw bitmap to canvas
       const idx = Math.min(frames.length - 1, Math.round(progress * (frames.length - 1)));
