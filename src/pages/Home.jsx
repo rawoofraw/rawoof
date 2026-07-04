@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <div className="relative min-h-[80vh] flex items-center">
-      {/* Animated Background Placeholder */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-20 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl mix-blend-screen animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl mix-blend-screen animate-pulse delay-700"></div>
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none"
+        style={{ backgroundImage: "url('/LUCES GAMER.jpg')" }}
+      >
+        {/* Gradient overlay to ensure text remains readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#010101] via-[#010101]/70 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#010101] via-transparent to-transparent"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl">

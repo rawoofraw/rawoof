@@ -14,7 +14,8 @@ const Projects = () => {
         'Built a high-throughput synthetic data generation loop with the Gemini API, producing 26,000+ paired training samples in structured JSONL format.',
         'Fine-tuned a LLaMA 8B model using QLoRA and Unsloth on an NVIDIA T4 GPU, optimizing 16GB VRAM usage for large-scale domain adaptation.',
         'Implemented instruction-based prompting to improve output coherence and academic tone.'
-      ]
+      ],
+      image: 'https://devopedia.org/images/article/483/5491.1717130917.png'
     },
     {
       id: 2,
@@ -27,7 +28,8 @@ const Projects = () => {
         'Configured cold-start scale-to-zero autoscaling to eliminate idle GPU costs.',
         'Built Azure Functions middleware with the Azure SDK for Python to orchestrate model predictions.',
         'Built a REST API via Azure API Management (APIM) with API key authentication and rate-limiting to prevent abuse.'
-      ]
+      ],
+      image: 'https://www.codelattice.com/blog/wp-content/uploads/2026/01/Microsoft_Azure_Cloud_01.png'
     }
   ];
 
@@ -91,15 +93,26 @@ const Projects = () => {
               </div>
 
               {/* Architecture Diagram Side */}
-              <div className="lg:w-2/5 bg-slate-900/80 border-t lg:border-t-0 lg:border-l border-slate-700/50 p-8 flex flex-col items-center justify-center min-h-[300px] group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <ImageIcon className="w-16 h-16 text-slate-600 mb-4 group-hover:text-blue-400 transition-colors duration-300" />
-                <span className="text-slate-500 font-mono text-sm uppercase tracking-widest group-hover:text-blue-300 transition-colors duration-300">
-                  Architecture_Diagram.svg
-                </span>
-                <span className="text-slate-600 text-xs mt-2 text-center max-w-xs">
-                  (Placeholder: Replace with actual system schematic)
-                </span>
+              <div className="lg:w-2/5 bg-slate-900/80 border-t lg:border-t-0 lg:border-l border-slate-700/50 p-8 flex flex-col items-center justify-center min-h-[300px] group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} Architecture`} 
+                    className="w-full h-full object-contain mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500 z-0" 
+                  />
+                ) : (
+                  <>
+                    <ImageIcon className="w-16 h-16 text-slate-600 mb-4 group-hover:text-blue-400 transition-colors duration-300" />
+                    <span className="text-slate-500 font-mono text-sm uppercase tracking-widest group-hover:text-blue-300 transition-colors duration-300">
+                      Architecture_Diagram.svg
+                    </span>
+                    <span className="text-slate-600 text-xs mt-2 text-center max-w-xs">
+                      (Placeholder: Replace with actual system schematic)
+                    </span>
+                  </>
+                )}
               </div>
               
             </div>
