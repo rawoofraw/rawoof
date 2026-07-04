@@ -47,7 +47,7 @@ const About = () => {
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  const videoRef = useRef(null);
+
   const canvasRef = useRef(null);
 
 
@@ -135,15 +135,7 @@ const About = () => {
         style={{ visibility: 'hidden' }}
         className="absolute inset-0 w-full h-full object-cover opacity-60 z-0" 
       />
-      <video
-        ref={videoRef}
-        src="/video/make_this_video_more_simple_li.mp4"
-        muted
-        playsInline
-        preload="auto"
-        crossOrigin="anonymous"
-        className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
-      />
+
       <Canvas 
         camera={{ position: [0, 2, 8], fov: 45 }}
         dpr={Math.min(window.devicePixelRatio, 2)}
@@ -162,9 +154,7 @@ const About = () => {
         <ScrollControls pages={2.5} damping={0.25} distance={1.2}>
           
           <ScrollVideoBackground 
-            videoUrl="/video/make_this_video_more_simple_li.mp4" 
             canvasRef={canvasRef} 
-            videoRef={videoRef} 
           />
 
           <Scroll html style={{ width: '100%', height: '100%' }}>
